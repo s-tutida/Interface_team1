@@ -6,35 +6,39 @@
     android:layout_height="match_parent"
     tools:context="com.example.team1.interface_team1.SensorActivity">
 
-    <Button
-        android:id="@+id/back"
-        android:text="back"
-        android:gravity="bottom"
-        android:layout_width="95dp"
-        android:layout_height="128dp"
-        android:onClick="onClick"
-        android:layout_alignParentTop="true"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="293dp" />
-
     <TextView android:id="@+id/text_view"
         android:textColor="#000000"
         android:background="#cccccc"
-        android:layout_width="285dp"
-        android:layout_height="144dp"
+        android:layout_width="134dp"
+        android:layout_height="227dp"
         android:layout_above="@+id/surfaceView"
-        android:layout_below="@+id/back"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_editor_absoluteY="4dp"
+        tools:layout_editor_absoluteX="0dp" />
+    <TextView android:id="@+id/text_view2"
+        android:textColor="#000000"
+        android:background="#cccccc"
+        android:layout_width="129dp"
+        android:layout_height="235dp"
+        android:layout_above="@+id/surfaceView"
+        tools:layout_editor_absoluteY="-4dp"
+        tools:layout_editor_absoluteX="136dp" />
+    <TextView android:id="@+id/text_view3"
+        android:textColor="#000000"
+        android:background="#cccccc"
+        android:layout_width="113dp"
+        android:layout_height="225dp"
+        android:layout_above="@+id/surfaceView"
+        tools:layout_editor_absoluteY="6dp"
+        tools:layout_editor_absoluteX="271dp" />
 
     <SurfaceView
-        android:layout_width="365dp"
-        android:layout_height="357dp"
+        android:layout_width="359dp"
+        android:layout_height="249dp"
         android:id="@+id/surfaceView"
         android:layout_row="16"
         android:layout_column="9"
         android:layout_alignParentBottom="true"
-        tools:layout_editor_absoluteY="145dp"
+        tools:layout_editor_absoluteY="254dp"
         tools:layout_editor_absoluteX="16dp" />
 
 </android.support.constraint.ConstraintLayout>

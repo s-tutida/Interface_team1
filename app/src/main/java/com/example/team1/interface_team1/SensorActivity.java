@@ -6,6 +6,7 @@ package com.example.team1.interface_team1;
         import android.hardware.SensorManager;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.util.Log;
         import android.widget.TextView;
         import java.util.List;
         import android.view.SurfaceView;
@@ -16,6 +17,11 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     private SensorManager mSensorManager;
     private TextView values;
     private SurfaceView surfaceView;
+    private int stepcount = 0;
+    private int stepcount2 = 0;
+
+    private TextView textview;
+    private TextView textview2;
 
     // センサーの値
     float[] magneticValues  = null;
@@ -27,7 +33,11 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
         //テキスト
         values = (TextView) findViewById(R.id.text_view);
+        textview = (TextView)findViewById(R.id.text_view2);
+        textview2 = (TextView)findViewById(R.id.text_view3);
 
+        textview.setText("STEP_DETECTOR=");
+        textview2.setText("STEP_COUNTER=");
 //        //ゲーム画面
 //        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
 
@@ -40,6 +50,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     @Override
     protected void onStart() {
 
+        super.onStart();
         super.onResume();
 
         //全センサーの取得
@@ -73,6 +84,7 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
     //アプリ終了時
     protected void onStop(){
 
+        super.onStop();
         super.onPause();
 
         mSensorManager.unregisterListener( this );
@@ -97,7 +109,16 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
                 magneticValues = event.values.clone();
                 break;
             case Sensor.TYPE_STEP_COUNTER:
-                step = event.values.clone();
+                // 今までの歩数
+                Log.d("type_step_counter", String.valueOf(event.values[0]));
+                stepcount2++;
+                textview2.setText("STEP_COUNTER=" + stepcount2 + "歩");
+                break;
+            case Sensor.TYPE_STEP_DETECTOR:
+                // ステップを検知した場合にアクセス
+                Log.d("type_detector_counter", String.valueOf(event.values[0]));
+                stepcount++;
+                textview.setText("STEP_DETECTOR=" + stepcount + "歩");
                 break;
         }
 
