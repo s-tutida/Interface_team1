@@ -38,8 +38,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
         textview.setText("STEP_DETECTOR=");
         textview2.setText("STEP_COUNTER=");
-//        //ゲーム画面
-//        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+        //ゲーム画面
+        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
 
         //センサー・マネージャーを取得する
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
@@ -149,8 +149,8 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
 
             //ここで画像をはる処理を行う
-//            MySurfaceView canvas = new MySurfaceView(this,surfaceView,direction,amount);
-//            canvas.surfaceCreated(canvas.mholder);
+            MySurfaceView canvas = new MySurfaceView(this,surfaceView,direction,amount);
+            canvas.surfaceCreated(canvas.mholder);
 
             String r =      "--------------------------------\n" +
                     "3-axis Magnetic field sensor\n"+
@@ -163,15 +163,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
 
             values.setText(r);
 
-        } else if(step != null){
-
-            String r = "hosuu  :" + step[0] + "\n";
-            values.setText(r);
-
-        }else{
-
-            String r = "error";
-            values.setText(r);
         }
     }
 
