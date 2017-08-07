@@ -33,11 +33,12 @@ public class Calc {
     int getAmount(){
         int amount = y * y + z * z ;
 
-        if(amount < 10) return 0;//水の量はゼロ
-        if(amount < 50) return 1;//水の量は1
-        if(amount < 100) return 2;//水の量は2
+        if(amount < 50) return 0;//水の量はゼロ
+        if(amount < 100) return 1;//水の量は1
+        if(amount < 200) return 2;//水の量は2
+        if(amount <300) return 3;
 
-        return 3;//max 3を返す
+        return 4;//max 3を返す
     }
 
 
